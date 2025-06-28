@@ -193,7 +193,7 @@ function initializeMockProducts() {
             price: 18.99,
             stock: 35,
             description: "Professional mechanical pencil set with various lead sizes.",
-            image: "assets/images/stationery/mechpen.jpg",
+            image: "assets/images/stationery/mechpen.JPG",
             sold: 0
         },
         {

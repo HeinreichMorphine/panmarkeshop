@@ -1,5 +1,0 @@
-username,password,role,name,address,phone,cusid
-admin,admin123,admin,Administrator,Admin Office,555-0001,CUS0001
-john_doe,password123,customer,John Doe,123 Main Street,555-0123,CUS0002
-jane_smith,password456,customer,Jane Smith,456 Oak Avenue,555-0456,CUS0003
-bob_wilson,password789,customer,Bob Wilson,789 Pine Road,555-0789,CUS0004 

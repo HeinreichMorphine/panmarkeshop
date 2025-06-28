@@ -72,5 +72,17 @@
             <div id="review-modal-body"></div>
         </div>
     </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('users')) {
+                initializeMockUsers(); // or your function to create demo users
+            }
+            if (!localStorage.getItem('products')) {
+                initializeMockProducts(); // or your function to create demo products
+            }
+            // Repeat for orders, reviews, etc. if needed
+        });
+    </script>
 </body>
 </html> 

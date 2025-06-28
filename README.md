@@ -1,6 +1,3 @@
-
----
-
 # Panmark Enterprise
 
 ## Installation & Setup Guide
@@ -19,7 +16,7 @@
 
 2. **Move to the Web Server Directory**
 
-   * Place the `panmark` directory inside your local server’s root directory (e.g., `htdocs` for XAMPP).
+   * Place the `panmark` directory inside your local server's root directory (e.g., `htdocs` for XAMPP).
 
 3. **Start the Web Server**
 
@@ -117,6 +114,14 @@
 * Display of reviews per product
 * Admin capabilities for review moderation
 
+### Data Management & Backup
+
+* Export all system data to Excel/CSV format
+* Import backup data from Excel/CSV files
+* Support for individual data types (products, users, orders, reviews)
+* Full system backup and restore capabilities
+* Data validation and error handling during import
+
 ### Dashboards
 
 **Admin Dashboard**
@@ -125,6 +130,11 @@
 * View and manage customer orders
 * Review moderation
 * Sales summary (basic reporting)
+* **Backup and Restore functionality**
+  - Export all data to Excel/CSV format
+  - Import backup data from Excel/CSV files
+  - Support for individual data types (products, users, orders, reviews)
+  - Full system backup/restore capabilities
 
 **Customer Dashboard**
 
@@ -217,7 +227,7 @@ Panmark/
 
 ## Additional Resources
 
-* Refer to `PROJECT_STRUCTURE.md` for a complete breakdown of the application’s internal structure and component functions.
+* Refer to `PROJECT_STRUCTURE.md` for a complete breakdown of the application's internal structure and component functions.
 * Comments are included throughout the codebase for easier navigation and customization.
 
 ---

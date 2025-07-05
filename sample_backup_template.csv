@@ -1,6 +1,0 @@
-id,productName,category,price,stock,description,image,sold
-1,"1984","Books",12.99,50,"Classic dystopian novel by George Orwell","../assets/images/books/1984_first_edition_cover.jpg",25
-2,"To Kill a Mockingbird","Books",14.99,45,"Harper Lee's masterpiece about justice and racism","../assets/images/books/800px-To_Kill_a_Mockingbird_(first_edition_cover).jpg",30
-3,"The Great Gatsby","Books",11.99,60,"F. Scott Fitzgerald's Jazz Age classic","../assets/images/books/The_Great_Gatsby_Cover_1925_Retouched.jpg",20
-4,"Parker Beta Pen","Stationery",25.99,30,"Premium fountain pen with smooth writing experience","../assets/images/stationery/parkerbeta.jpg",15
-5,"Leather Desk Organizer","Stationery",45.99,20,"Elegant leather desk organizer for office supplies","../assets/images/stationery/leather.jpg",10 

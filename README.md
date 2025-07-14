@@ -106,7 +106,7 @@
 
 * Customer view: personal order history
 * Admin view: all orders placed by all customers
-* Order details including products, total amount, and order status
+* Order details including products, total amount, and order status (Pending, Processed, Shipping, Delivered, Cancelled, Received)
 
 ### Review System
 
@@ -179,7 +179,7 @@ Panmark/
 
 * **Orders**
 
-  * Fields: `id`, `userId`, `items`, `total`, `status`, `date`
+  * Fields: `id`, `userId`, `items`, `total`, `status` (Pending, Processed, Shipping, Delivered, Cancelled, Received), `date`
 
 * **Reviews**
 

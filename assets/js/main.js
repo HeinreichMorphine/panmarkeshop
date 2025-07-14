@@ -889,6 +889,7 @@ function getProductDetailsContent(productId) {
 
 function getCartPageContent() {
     const cartItems = getCartItems();
+    console.log(cartItems);
 
     if (cartItems.length === 0) {
         return `
@@ -939,6 +940,7 @@ function getCartPageContent() {
                 ${cartItems.map(item => {
                     const { discount, discountLabel } = calculateItemDiscount(item);
                     const discountedUnit = discount > 0 ? ((item.price * item.quantity - discount) / item.quantity).toFixed(2) : item.price.toFixed(2);
+                    console.log(item.productName, 'Original Total:', item.price * item.quantity, 'Discount:', discount, 'Discounted Total:', (item.price * item.quantity - discount).toFixed(2));
                     return `
                         <div class="flex items-center p-6 border-b">
                             <img src="${item.image}" alt="${item.productName}" class="w-20 h-20 object-contain rounded">
@@ -977,24 +979,6 @@ function getCartPageContent() {
         </div>
     `;
 }
-
-function getOrdersPageContent() {
-    const currentUser = getCurrentUser();
-    if (!currentUser) {
-        return '<div class="text-center"><h2 class="text-2xl text-red-600">Please login to view orders</h2></div>';
-    }
-    
-    const orders = JSON.parse(localStorage.getItem('orders'));
-    const userOrders = currentUser.role === 'admin' ? orders : orders.filter(order => order.userId === currentUser.username);
-    
-    if (userOrders.length === 0) {
-        return `
-            <div class="text-center">
-                <h2 class="text-2xl font-bold text-panmark-dark mb-4">No Orders Found</h2>
-                <p class="text-gray-600">You haven't placed any orders yet.</p>
-            </div>
-        `;
-    }
     
     return `
         <div>

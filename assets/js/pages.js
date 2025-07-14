@@ -800,6 +800,10 @@ function getCustomerGuideContent() {
                             <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order Actions</h3>
                             <p class="text-gray-600">When your order is shipped, you can mark it as received. This enables you to leave a review for purchased products.</p>
                         </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order Cancellation</h3>
+                            <p class="text-gray-600">To cancel an order, please contact us directly via <a href="https://wa.me/60196156835" target="_blank" class="text-green-600 underline">WhatsApp</a> with your order details.</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Product Reviews -->

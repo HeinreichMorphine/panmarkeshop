@@ -741,7 +741,6 @@ function getCustomerGuideContent() {
     return `
         <div class="max-w-4xl mx-auto">
             <h1 class="text-3xl font-bold text-panmark-dark mb-6">Customer User Guide</h1>
-            
             <div class="space-y-8">
                 <!-- Getting Started -->
                 <div class="bg-white rounded-lg shadow-md p-6">
@@ -749,107 +748,103 @@ function getCustomerGuideContent() {
                     <div class="space-y-4">
                         <div>
                             <h3 class="text-lg font-semibold text-panmark-accent mb-2">Account Registration</h3>
-                            <p class="text-gray-600">To create an account, click "Login" in the navigation bar, then select "Register". You will need to provide your full name, complete address, and contact phone number for account verification.</p>
+                            <p class="text-gray-600">Click "Login" in the navigation bar, then select "Register". Provide your full name, address, and phone number. After registration, log in to access all features.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Demo Accounts</h3>
+                            <p class="text-gray-600">You can use the following demo accounts:<br>Admin: <b>admin / admin123</b><br>Customer: <b>john_doe / password123</b></p>
                         </div>
                     </div>
                 </div>
-
                 <!-- Product Browsing -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h2 class="text-2xl font-bold text-panmark-dark mb-4">Product Browsing</h2>
                     <div class="space-y-4">
                         <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Product Categories</h3>
-                            <p class="text-gray-600">Browse our extensive collection by category: <strong>Books</strong> featuring classic literature and contemporary novels, and <strong>Stationery</strong> including premium writing instruments and office supplies.</p>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Categories & Search</h3>
+                            <p class="text-gray-600">Browse by category (Books or Stationery) or use the search bar to quickly find products by name or category.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Product Search</h3>
-                            <p class="text-gray-600">Utilize the search functionality to locate specific products by name or category for efficient browsing.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Product Information</h3>
-                            <p class="text-gray-600">Select "View Details" to access comprehensive product information, customer reviews, and add items to your shopping cart.</p>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Product Details</h3>
+                            <p class="text-gray-600">Click "View Details" on any product to see its description, price, stock, and customer reviews.</p>
                         </div>
                     </div>
                 </div>
-
                 <!-- Shopping Cart -->
                 <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-2xl font-bold text-panmark-dark mb-4">Shopping Cart Management</h2>
+                    <h2 class="text-2xl font-bold text-panmark-dark mb-4">Shopping Cart & Discounts</h2>
                     <div class="space-y-4">
                         <div>
                             <h3 class="text-lg font-semibold text-panmark-accent mb-2">Adding Products</h3>
-                            <p class="text-gray-600">Select "Add to Cart" on any product listing. Quantity specifications are available on the detailed product page.</p>
+                            <p class="text-gray-600">Click "Add to Cart" on any product. Adjust quantity on the product details page or in your cart.</p>
                         </div>
                         <div>
                             <h3 class="text-lg font-semibold text-panmark-accent mb-2">Cart Management</h3>
-                            <p class="text-gray-600">Access your shopping cart to modify quantities, remove items, or proceed to the checkout process.</p>
+                            <p class="text-gray-600">In your cart, you can change quantities, remove items, and see applied discounts. Book purchases get 10% off. Buy 5+ pens or pencils for RM1.00 off each.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order Processing</h3>
-                            <p class="text-gray-600">Select "Checkout" to finalize your purchase. Orders are processed immediately upon confirmation.</p>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Checkout</h3>
+                            <p class="text-gray-600">Click "Checkout" to place your order. Orders are processed instantly and appear in your order history.</p>
                         </div>
                     </div>
                 </div>
-
                 <!-- Order Management -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h2 class="text-2xl font-bold text-panmark-dark mb-4">Order Management</h2>
                     <div class="space-y-4">
                         <div>
                             <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order History</h3>
-                            <p class="text-gray-600">Access your complete order history through "My Account" → "Order History" to review all previous transactions.</p>
+                            <p class="text-gray-600">View all your orders in "Order History". Track status: Pending, Processed, Shipping, Delivered, Received, or Cancelled.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order Status Tracking</h3>
-                            <p class="text-gray-600">Monitor your order progression through the following stages: <strong>Pending</strong> → <strong>Processed</strong> → <strong>Shipping</strong> → <strong>Delivered</strong></p>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order Confirmation</h3>
-                            <p class="text-gray-600">Upon shipment, you may confirm receipt of your order, which enables the review submission feature.</p>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order Actions</h3>
+                            <p class="text-gray-600">When your order is shipped, you can mark it as received. This enables you to leave a review for purchased products.</p>
                         </div>
                     </div>
                 </div>
-
                 <!-- Product Reviews -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h2 class="text-2xl font-bold text-panmark-dark mb-4">Product Reviews</h2>
                     <div class="space-y-4">
                         <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Review Submission</h3>
-                            <p class="text-gray-600">Following order receipt, you may submit product reviews with ratings from 1-5 stars and detailed comments.</p>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Submitting Reviews</h3>
+                            <p class="text-gray-600">After receiving your order, click "Add Review" on the order page. Rate 1-5 stars and leave a comment to help others.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Review Access</h3>
-                            <p class="text-gray-600">Access customer reviews on product detail pages to assist in purchasing decisions.</p>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Reading Reviews</h3>
+                            <p class="text-gray-600">See what others think by reading reviews on each product's details page.</p>
                         </div>
                     </div>
                 </div>
-
                 <!-- Account Management -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h2 class="text-2xl font-bold text-panmark-dark mb-4">Account Management</h2>
                     <div class="space-y-4">
                         <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Profile Information</h3>
-                            <p class="text-gray-600">Update your personal information including name, address, and contact details through the "My Account" section.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Security Settings</h3>
-                            <p class="text-gray-600">Modify your account password at any time through the account settings for enhanced security.</p>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Profile & Security</h3>
+                            <p class="text-gray-600">Update your name, address, phone, or password in "My Account". Keep your info current for smooth order processing.</p>
                         </div>
                     </div>
                 </div>
-
+                <!-- Data & Backup -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-bold text-panmark-dark mb-4">Data & Backup</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-panmark-accent mb-2">Data Safety</h3>
+                            <p class="text-gray-600">Your data is stored securely in your browser. Use the backup/restore options in the admin dashboard for extra safety.</p>
+                        </div>
+                    </div>
+                </div>
                 <!-- Best Practices -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h2 class="text-2xl font-bold text-panmark-dark mb-4">Best Practices</h2>
                     <ul class="list-disc list-inside space-y-2 text-gray-600">
-                        <li>Utilize the search functionality for efficient product discovery</li>
-                        <li>Verify product availability before adding items to your cart</li>
-                        <li>Review customer feedback to make informed purchasing decisions</li>
-                        <li>Maintain current contact information for seamless order processing</li>
-                        <li>Use category filters to streamline your product browsing experience</li>
+                        <li>Use search and filters to find products quickly</li>
+                        <li>Check stock and reviews before purchasing</li>
+                        <li>Keep your contact info up to date</li>
+                        <li>Review your orders and submit feedback</li>
+                        <li>Contact support if you need help</li>
                     </ul>
                 </div>
             </div>

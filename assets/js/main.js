@@ -889,7 +889,7 @@ function getProductDetailsContent(productId) {
 
 function getCartPageContent() {
     const cartItems = getCartItems();
-    
+
     if (cartItems.length === 0) {
         return `
             <div class="text-center">
@@ -901,70 +901,77 @@ function getCartPageContent() {
             </div>
         `;
     }
-    
-    // In getCartPageContent, update the cart item display to show original price, discounted price, and discount amount if applicable
-    const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    // Calculate discounts for display
-    const BOOK_DISCOUNT_PERCENT = 10;
-    const PEN_BULK_MIN = 5;
-    const PEN_BULK_DISCOUNT = 1;
-    const discountedItems = cartItems.map(item => {
+
+    // Helper function to calculate discount for a single item
+    const calculateItemDiscount = (item) => {
         let discount = 0;
+        let discountLabel = '';
+
+        // Book discount
         if (item.category === 'Books') {
-            discount = (item.price * item.quantity) * (BOOK_DISCOUNT_PERCENT / 100);
+            discount = (item.price * item.quantity) * 0.10;
+            discountLabel = '10% off';
         }
-        if (item.category === 'Stationery' && (/pen/i.test(item.productName) || /pencil/i.test(item.productName)) && item.quantity >= PEN_BULK_MIN) {
-            discount += PEN_BULK_DISCOUNT * item.quantity;
+        // Bulk pen and pencil discount
+        if (item.category === 'Stationery' && (/pen/i.test(item.productName) || /pencil/i.test(item.productName)) && item.quantity >= 5) {
+            // If there's already a book discount, add to it. Otherwise, set it.
+            discount += 1 * item.quantity;
+            // You might want to refine how discountLabel is displayed if multiple discounts apply
+            discountLabel = discountLabel ? `${discountLabel}, Bulk RM1.00 off each` : 'Bulk RM1.00 off each';
         }
-        return { ...item, discount };
-    });
-    const discountedTotal = discountedItems.reduce((sum, item) => sum + (item.price * item.quantity - item.discount), 0);
+        return { discount, discountLabel };
+    };
+
+    const totalDiscount = cartItems.reduce((sum, item) => {
+        const { discount } = calculateItemDiscount(item);
+        return sum + discount;
+    }, 0);
+
+    const total = cartItems.reduce((sum, item) => {
+        const { discount } = calculateItemDiscount(item);
+        return sum + (item.price * item.quantity - discount);
+    }, 0);
 
     return `
         <div>
             <h1 class="text-3xl font-bold text-panmark-dark mb-6">Shopping Cart</h1>
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                ${discountedItems.map(item => `
-                    <div class="flex items-center p-6 border-b">
-                        <img src="${item.image}" alt="${item.productName}" class="w-20 h-20 object-contain rounded">
-                        <div class="flex-1 ml-4">
-                            <h3 class="text-lg font-semibold text-panmark-dark">${item.productName}</h3>
-                            <p class="text-gray-600">${item.category}</p>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="flex items-center space-x-2">
-                                <button onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})" 
-                                        class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
-                                    -
-                                </button>
-                                <span class="w-8 text-center">${item.quantity}</span>
-                                <button onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})" 
-                                        class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
-                                    +
-                                </button>
+                ${cartItems.map(item => {
+                    const { discount, discountLabel } = calculateItemDiscount(item);
+                    const discountedUnit = discount > 0 ? ((item.price * item.quantity - discount) / item.quantity).toFixed(2) : item.price.toFixed(2);
+                    return `
+                        <div class="flex items-center p-6 border-b">
+                            <img src="${item.image}" alt="${item.productName}" class="w-20 h-20 object-contain rounded">
+                            <div class="flex-1 ml-4">
+                                <h3 class="text-lg font-semibold text-panmark-dark">${item.productName}</h3>
+                                <p class="text-gray-600">${item.category}</p>
+                                <div class="text-xs text-gray-500 mt-1">
+                                    <span>Unit Price: ${discount > 0 ? `<s>RM${item.price.toFixed(2)}</s> <b class='text-green-700'>RM${discountedUnit}</b> <span class='text-green-600'>(${discountLabel})</span>` : `<b>RM${item.price.toFixed(2)}</b>`}</span>
+                                    ${discount > 0 ? `<br><span>Total Discount: <b class='text-green-700'>-RM${discount.toFixed(2)}</b></span>` : ''}
+                                </div>
                             </div>
-                            <div class="text-right">
-                                <p class="text-panmark-accent font-bold">
-                                    ${item.discount > 0 ? `<span class='line-through text-gray-400 mr-2'>RM${(item.price * item.quantity).toFixed(2)}</span> <span>RM${(item.price * item.quantity - item.discount).toFixed(2)}</span>` : `RM${(item.price * item.quantity).toFixed(2)}`}
-                                </p>
-                                ${item.discount > 0 ? `<p class='text-green-600 text-xs'>Discount: -RM${item.discount.toFixed(2)}</p>` : ''}
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">-</button>
+                                    <span class="w-8 text-center">${item.quantity}</span>
+                                    <button onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">+</button>
+                                </div>
+                                <p class="text-panmark-accent font-bold">RM${(item.price * item.quantity - discount).toFixed(2)}</p>
+                                <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">Remove</button>
                             </div>
-                            <button onclick="removeFromCart(${item.id})" 
-                                    class="text-red-500 hover:text-red-700">
-                                Remove
-                            </button>
                         </div>
-                    </div>
-                `).join('')}
+                    `;
+                }).join('')}
                 <div class="p-6 bg-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xl font-bold">Total Discount:</span>
+                        <span class="text-xl font-bold text-green-700">-RM${totalDiscount.toFixed(2)}</span>
+                    </div>
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xl font-bold">Total:</span>
-                        <span class="text-2xl font-bold text-panmark-accent">RM${discountedTotal.toFixed(2)}</span>
+                        <span class="text-2xl font-bold text-panmark-accent">RM${total.toFixed(2)}</span>
                     </div>
-                    <button onclick="createOrder()" 
-                            class="w-full bg-panmark-accent text-white py-3 px-6 rounded-md hover:bg-opacity-90 transition-colors">
-                        Checkout
-                    </button>
+                    <button onclick="createOrder()" class="w-full bg-panmark-accent text-white py-3 px-6 rounded-md hover:bg-opacity-90 transition-colors">Checkout</button>
                 </div>
             </div>
         </div>

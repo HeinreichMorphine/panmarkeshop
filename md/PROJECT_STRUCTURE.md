@@ -18,9 +18,15 @@ Panmark/
 └── deploy.bat                  # Windows deployment script
 ```
 
-## 📄 File Descriptions
+├── assets/
+│   ├── images/
+│   │   ├── books/              # Book cover images
+│   │   └── stationery/         # Stationery product images
+│   └── js/
+│       ├── database.js         # Optimized database layer (647 lines)
+│       ├── excel-import.js     # Excel/CSV import utility (276 lines)
 
-### Core Files
+##  File Descriptions
 
 #### `public/index.html`
 - **Purpose:** Main entry point for the application
@@ -29,8 +35,6 @@ Panmark/
   - Tailwind CSS configuration with custom color palette
   - Dynamic content loading area
   - Footer with project information
-  - Links to all JavaScript and CSS files
-
 #### `assets/js/main.js` (979 lines)
 - **Purpose:** Core application logic and data management
 - **Key Functions:**
@@ -41,8 +45,6 @@ Panmark/
   - Order processing
   - Review system
   - Navigation and routing
-  - User session management
-
 #### `assets/js/pages.js` (430 lines)
 - **Purpose:** HTML content generation for all pages
 - **Pages Included:**
@@ -53,13 +55,25 @@ Panmark/
   - Shopping cart with quantity management
   - Order history for customers and admins
   - Admin dashboard with product management
-  - Customer dashboard with profile and quick actions
-
 #### `assets/js/events.js` (273 lines)
 - **Purpose:** Event handlers and user interaction logic
 - **Functions:**
   - Form submission handlers (login, reviews, products)
   - Product filtering and search functionality
+
+#### `assets/js/database.js` (647 lines)
+- **Purpose:** Optimized database layer for efficient data management
+- **Features:**
+  - Caching and indexing for fast queries
+  - Storage initialization and validation
+  - Data import/export helpers
+
+#### `assets/js/excel-import.js` (276 lines)
+- **Purpose:** Excel/CSV import utility for bulk data operations
+- **Features:**
+  - CSV parsing and validation
+  - Data import with error handling
+  - Integration with database layer
   - Cart quantity updates
   - Admin CRUD operations (add, edit, delete products)
   - Modal and form management
@@ -109,7 +123,7 @@ Panmark/
   userId: "john_doe",
   items: [...],
   total: 45.97,
-  status: "Pending",
+  status: "Pending", // or "Processed", "Shipping", "Delivered", "Cancelled", "Received"
   date: "2024-01-15T10:30:00.000Z"
 }
 ```
@@ -127,7 +141,7 @@ Panmark/
 }
 ```
 
-## 🎨 Design System
+##  Design System
 
 ### Color Palette
 - **Primary Dark:** `#2C3639` (Headers, footers)
@@ -146,7 +160,7 @@ Panmark/
 - **Forms:** Clean input styling with focus states
 - **Navigation:** Fixed header with responsive design
 
-## 🔧 Technical Implementation
+##  Technical Implementation
 
 ### Frontend Architecture
 - **Single Page Application (SPA)** using vanilla JavaScript
@@ -166,7 +180,7 @@ Panmark/
 - **Minimal re-renders**
 - **Optimized image placeholders**
 
-## 🚀 Deployment
+##  Deployment
 
 ### Local Development
 1. Clone/download the project
@@ -180,13 +194,14 @@ Panmark/
 - **Image optimization** for real product images
 - **SEO optimization** for search engines
 
-## 📊 Code Statistics
 
-- **Total Lines of Code:** ~1,682 lines
-- **JavaScript:** 1,682 lines (99.9%)
-- **HTML:** ~65 lines (0.1%)
-- **CSS:** ~150 lines (custom styles)
-- **Files:** 7 total files
+##  Code Statistics
+
+- **Total Lines of Code:** ~3,500 lines
+- **JavaScript:** ~3,500 lines (99.7%)
+- **HTML:** ~90 lines (0.2%)
+- **CSS:** ~200 lines (custom styles)
+- **Files:** 13+ total files (including images, scripts, and docs)
 
 ## 🔍 Key Features Implementation
 
@@ -212,7 +227,7 @@ Panmark/
 - **Cart to order conversion** on checkout
 - **Order history** for customers
 - **Admin order management** (view all orders)
-- **Order status tracking** (Pending, Processed)
+- **Order status tracking** (Pending, Processed, Shipping, Delivered, Cancelled, Received)
 
 ### Review System
 - **Star ratings** (1-5 stars)
@@ -220,7 +235,7 @@ Panmark/
 - **Review display** on product pages
 - **Admin review management**
 
-## 🎯 Future Enhancements
+##  Future Enhancements
 
 ### Potential Improvements
 - **Real backend integration** (PHP, Node.js)
@@ -239,12 +254,15 @@ Panmark/
 - **Real-time features** (WebSockets)
 - **PWA capabilities** (offline support)
 
+
 ## Key Files
 - `assets/js/pages.js`: Main file for rendering all page content, including product grids and admin tables.
   - Customer/guest product grid: see `getProductsPageContent()` (guest/customer branch)
   - Admin product management table: see `getProductsPageContent()` (admin branch)
 - `assets/js/main.js`: Application logic, data models, and navigation.
 - `assets/js/events.js`: Event handlers for UI actions.
+- `assets/js/database.js`: Optimized database and storage logic.
+- `assets/js/excel-import.js`: Excel/CSV import and backup utility.
 - `assets/css/style.css`: Custom styles (in addition to Tailwind).
 - `public/index.html`: Main HTML entry point.
 

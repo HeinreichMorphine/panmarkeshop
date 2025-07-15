@@ -802,7 +802,7 @@ function getCustomerGuideContent() {
                         </div>
                         <div>
                             <h3 class="text-lg font-semibold text-panmark-accent mb-2">Order Cancellation</h3>
-                            <p class="text-gray-600">To cancel an order, please contact us directly via <a href="https://wa.me/60196156835" target="_blank" class="text-green-600 underline">WhatsApp</a> with your order details.</p>
+                            <p class="text-gray-600">To cancel an order or if certain items are not in the shop you can contact us as we will source it externally, please contact us directly via <a href="https://wa.me/60196156835" target="_blank" class="text-green-600 underline">WhatsApp</a> with your order details.</p>
                         </div>
                     </div>
                 </div>
